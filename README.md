@@ -16,7 +16,7 @@ SPOTIFY_TOKEN=SOME_TOKEN_VALUE_FROM_SPOTIFY_CONSOLE
 # Run It
 1. Option 1: [Docker]
 ```
-docker built -t bot && docker run bot
+docker build -t bot && docker run bot
 ```
 
 2. Option 2: [Locally with Python]
