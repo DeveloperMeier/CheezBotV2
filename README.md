@@ -1,3 +1,30 @@
+# Pre-Requisites
+- Docker
+- Python 3.7
+- Discord.py (installed via pip)
+
+# Set-up
+1. Create the file `.env` in the root directory with contents looking like:
+```
+DISCORD_TOKEN=SOME_TOKEN_VALUE_FROM_DISCORD_DEVELOPER_CONSOLE
+GIPHY_TOKEN=SOME_TOKEN_VALUE_FROM_GIPHY_CONSOLE
+YOUTUBE_TOKEN=SOME_TOKEN_VALUE_FROM_YOUTUBE_CONSOLE
+SPOTIFY_TOKEN=SOME_TOKEN_VALUE_FROM_SPOTIFY_CONSOLE
+```
+
+
+# Run It
+1. Option 1: [Docker]
+```
+docker built -t bot && docker run bot
+```
+
+2. Option 2: [Locally with Python]
+```
+python3 -m pip install -r requirements.txt
+python3 main.py
+```
+
 # Structure
 
 ```
