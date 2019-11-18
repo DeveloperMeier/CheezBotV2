@@ -1,0 +1,42 @@
+# Structure
+
+```
+- db/
+  -- models/
+    -- server.py
+    -- user.py
+    -- channel.py
+    -- permissions.py
+- config/
+  -- access.py
+  -- restrictions.py
+  -- whitelist.py
+  -- blacklist.py
+- connectors/
+  -- spotify.py
+  -- youtube.py
+  -- giphy.py
+  -- reddit.py
+- commands/
+  -- gif/
+     -- puppy.py
+     -- kitten.py
+     -- boobs.py
+     -- 420.py
+  -- roles/
+     -- gameroles.py
+     -- commandroles.py
+     -- roledelegation.py
+- admin/
+  -- access_control.py
+  -- restict_access.py
+- utils/
+  -- send_message.py
+  -- watch_message.py
+  -- delete_message.py
+- main.py
+- .env
+- requirements.txt
+- Pipfile
+- Pipfile.lock
+```
