@@ -9,6 +9,7 @@ verify_ssl = true
 discord = "*"
 python-dotenv = "*"
 requests = "*"
+giphy_client = "*"
 
 [requires]
 python_version = "3.6"

@@ -10,8 +10,9 @@ BOT_SYMBOL = '//'
 CLIENT = discord.Client()
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-bot = Bot(symbol=BOT_SYMBOL, client=CLIENT, token=TOKEN)
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+GIPHY_TOKEN = os.getenv('GIPHY_TOKEN')
+bot = Bot(symbol=BOT_SYMBOL, client=CLIENT, discord_token=DISCORD_TOKEN, giphy_token=GIPHY_TOKEN)
 
 @CLIENT.event
 async def on_ready(): await bot.on_ready()
