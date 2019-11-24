@@ -14,22 +14,36 @@ class Player:
         self.value = self.hand.calculate_value()
     
     def __repr__(self):
-        hand = "".join(
-            [card.ascii_card() for card in self.hand.cards]
+        hand = "\n".join(
+            [str(card) for card in self.hand.cards]
         )
-        return f'{self.name}:\n {hand}'
+        return f'{self.name}:\n{hand}'\
+                "\n\n\n"\
+               f"Bust: {player.hand.is_bust}\n"\
+               f"Value: {player.hand.value}\n"\
+               f"Blackjack: {player.hand.blackjack}\n"
 
 class Hand:
     def __init__(self, cards = []):
         self.cards = cards
-        self.blackjack = self.calculate_value() == 21
-
+        self.value = self.calculate_value()
+        self.blackjack = self.value == 21
+        self.is_bust = False
+    
+    def _one_or_eleven(self, value):
+        return 1 if value + 11 <= 21 else 11
+    
     def calculate_value(self):
-        return sum([card.value for card in self.cards])
-
+        it = [
+            card.value 
+            if card.value != 11 
+            else self._one_or_eleven(card.value)
+            for card in self.cards 
+        ]
+        return sum(it)
+    
     def __repr__(self):
-        
-        return ''.join([card.ascii_card() for card in self.cards])
+        return '\n'.join([str(card) for card in self.cards])
 
 
 class Card:
@@ -37,6 +51,12 @@ class Card:
         self.suit = suit
         self.number = num
         self.value = self.calculate_value()
+        self.long_string = {
+            'S': "Spades",
+            'H': "Hearts",
+            'C': "Clubs",
+            'D': "Diamonds"
+        }
     
     def ascii_card(self):
         spacing = 7
@@ -56,6 +76,9 @@ class Card:
             return 11
         else:
             return self.number
+    
+    def __repr__(self):
+        return f'{self.number} of {self.long_string[self.suit]}'
 
 class Deck:
     def __init__(self):
@@ -82,4 +105,4 @@ class Deck:
 if __name__ == '__main__':
     game = Blackjack(['Colby', 'Colby2'])
     for player in game.players:
-        print(player, f"Blackjack: {player.hand.blackjack}")
+        print(player)
